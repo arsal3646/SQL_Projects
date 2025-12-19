@@ -1,0 +1,9 @@
+SELECT TOP (100)
+
+    SalesOrderNumber,
+    OrderDate,
+    SalesAmount,
+    TaxAmt,
+    OrderQuantity
+
+FROM FactInternetSales
