@@ -1,9 +1,11 @@
 SELECT TOP (100)
 
-    SalesOrderNumber,
+    SalesOrderNumber AS InvoiceNumber,
     OrderDate,
-    SalesAmount,
-    TaxAmt,
-    OrderQuantity
+    SUM(SalesAmount),
+    SUM(TaxAmt),
+    SUM(OrderQuantity)
 
 FROM FactInternetSales
+
+GROUP BY SalesOrderNumber, OrderDate
