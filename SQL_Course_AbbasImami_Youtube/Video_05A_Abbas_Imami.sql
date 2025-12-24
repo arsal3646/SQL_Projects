@@ -34,4 +34,4 @@ SELECT TOP(10)
 
 FROM DimCustomer
 
--- Video watched till 16 minutes.
+-- Video watched till 21 minutes.
