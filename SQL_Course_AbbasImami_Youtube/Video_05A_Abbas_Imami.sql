@@ -1,7 +1,7 @@
 -- Vide 05: DataTime Functions in SQL
 -- Both DATETIME* and SMALLDATETIME* are now obsolete. We use only DATE, TIME, DATETIME2* and DATETIMEOFFSET* data types.
 
-SELECT 
+SELECT TOP 10
 
 GETDATE() AS CurrentDateTime, -- Returns the current database system timestamp as a DATETIME value
 SYSDATETIME() AS CurrentDateTime2, -- Returns the current database system timestamp as a DATETIME2 value
@@ -15,12 +15,23 @@ GETUTCDATE() AS CurrentUTCDateTime, -- Returns the current database system times
 -- How can I see Dubai time? we will see that in the next videos about DATETIMEOFFSET* data type.
 
 DueDate,
-OrderDate
+OrderDate,
 
-FROM FactInternetSales
+DueDate - OrderDate AS DeliveryDuration,  -- Issue: This is not giving error but it is showing the result in DATETIME format which is not correct. We need in number of days.
+DATEDIFF(day, OrderDate, DueDate) AS DateDiffDays,  -- Correct way to find difference between two dates in number of days.
+DATEDIFF(hour, OrderDate, DueDate) AS DateDiffDays -- Correct way to find difference between two dates in number of hours.
 
--- How to find difference between two dates? uSE DATEDIFF function.
+FROM FactInternetSales;
 
+-- How to find difference between two dates? use DATEDIFF function.
 
+SELECT TOP(10)
+    BirthDate,
+    GETDATE() AS CurrentDate,
+    DATEDIFF(year, BirthDate, GETDATE()) AS AgeInYears,
+    DATEDIFF(month, BirthDate, GETDATE()) AS AgeInMonths,
+    DATEDIFF(day, BirthDate, GETDATE()) AS AgeInDays
 
--- Video watched till 11:30
+FROM DimCustomer
+
+-- Video watched till 16 minutes.
