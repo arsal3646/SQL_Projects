@@ -23,8 +23,9 @@ SELECT TOP(15)  -- Let's see an example of CONCAT function
     LOWER(EmailAddress) AS EmailAddress_Lower,
     UPPER(REPLACE(FirstName, 'Jon', 'Arsalan')) AS FirstName_Replaced,
     REPLACE (EmailAddress,'-','') AS EmailAddress_Replaced,
-    LEN(FirstName) AS FirstName_Length
-    
+    LEN(FirstName) AS FirstName_Length,
+    LEFT(EmailAddress, CHARINDEX('@',EmailAddress)-1) AS User_Name_from_Email, -- This will provide position of a character or substring in a string
+    RIGHT(EmailAddress, (LEN(EmailAddress)-CHARINDEX('@', EmailAddress))) AS Domain_Name_from_Email 
 FROM DimCustomer;
 
--- Watched video until minute 33
+-- Watched video until minute 45
