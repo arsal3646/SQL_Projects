@@ -66,4 +66,4 @@ SELECT
 
 -- the above was just for practice. Normally, we use ISO format YYYYMMDD to avoid confusion.
 
--- Video watched till 46 minutes.
+-- Video watched till the end.
