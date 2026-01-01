@@ -25,7 +25,8 @@ SELECT TOP(15)  -- Let's see an example of CONCAT function
     REPLACE (EmailAddress,'-','') AS EmailAddress_Replaced,
     LEN(FirstName) AS FirstName_Length,
     LEFT(EmailAddress, CHARINDEX('@',EmailAddress)-1) AS User_Name_from_Email, -- This will provide position of a character or substring in a string
-    RIGHT(EmailAddress, (LEN(EmailAddress)-CHARINDEX('@', EmailAddress))) AS Domain_Name_from_Email 
+    RIGHT(EmailAddress, (LEN(EmailAddress)-CHARINDEX('@', EmailAddress))) AS Domain_Name_from_Email,
+    CHARINDEX(' ', CONCAT(FirstName,' ',LastName)) AS Position_of_Space_in_FullName
 FROM DimCustomer;
 
 -- Watched video until minute 45
