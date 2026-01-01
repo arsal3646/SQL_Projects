@@ -29,4 +29,4 @@ SELECT TOP(15)  -- Let's see an example of CONCAT function
     CHARINDEX(' ', CONCAT(FirstName,' ',LastName)) AS Position_of_Space_in_FullName
 FROM DimCustomer;
 
--- Watched video until minute 45
+-- Watched video till the end
