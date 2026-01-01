@@ -56,10 +56,14 @@ ORDER BY Quantity_Sold DESC; -- Best month for selling products is December whil
 
 -- Check date format
 
+SET LANGUAGE British  -- Changing language settings to British English to use DD/MM/YYYY format.
+
 SELECT
-    MONTH('02/12/2025') AS Month_Value,  -- Returns 2 for February not 12 for December as the format is MM/DD/YYYY by default in SQL Server (i.e. American way). 
+ MONTH('02/12/2025') AS Month_Value_BRITISH_FORMAT,  -- Returns 2 for February not 12 for December as the format is MM/DD/YYYY by default in SQL Server (i.e. American way). 
     -- if you want to use DD/MM/YYYY format then you need to change the language settings of your database server to British English.
 
-    DATENAME(month,'02/12/2025') AS Month_Name -- Returns February as the format is MM/DD/YYYY by default in SQL Server.
-    
+    DATENAME(month,'02/12/2025') AS Month_Name_BRITISH_FORMAT -- Returns February as the format is MM/DD/YYYY by default in SQL Server.
+
+-- the above was just for practice. Normally, we use ISO format YYYYMMDD to avoid confusion.
+
 -- Video watched till 46 minutes.
