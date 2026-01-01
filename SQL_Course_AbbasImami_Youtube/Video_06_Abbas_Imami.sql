@@ -11,17 +11,20 @@
 -- nVARCHAR uses 2 bytes per character, while VARCHAR uses 1 byte per character
 -- It is important to choose the appropriate string data type based on the requirements of your application and the type of data you need to store
 
-SELECT TOP (10)  -- Let's see an example of CONCAT function
+SELECT TOP(15)  -- Let's see an example of CONCAT function
     FirstName,
     LastName,
-    CONCAT(FirstName, ' ', LastName) AS FullName
+    EmailAddress,
+    LOWER(CONCAT(FirstName, ' ', LastName)) AS FullName,
+    UPPER(FirstName) AS FirstName_Upper,
+    LOWER(LastName) AS LastName_Lower,
+    LEN(FirstName) AS FirstName_Length,
+    RIGHT(LastName, 3) AS LastName_Right3,
+    UPPER(LEFT(FirstName, 2)) AS FirstName_Left2,
+    LOWER(EmailAddress) AS EmailAddress_Lower,
+    UPPER(REPLACE(FirstName, 'Jon', 'Arsalan')) AS FirstName_Replaced
     
+
 FROM DimCustomer;
 
-
-
-
-
-
-
--- Watched video until minute 20
+-- Watched video until minute 30
