@@ -18,13 +18,13 @@ SELECT TOP(15)  -- Let's see an example of CONCAT function
     LOWER(CONCAT(FirstName, ' ', LastName)) AS FullName,
     UPPER(FirstName) AS FirstName_Upper,
     LOWER(LastName) AS LastName_Lower,
-    LEN(FirstName) AS FirstName_Length,
     RIGHT(LastName, 3) AS LastName_Right3,
     UPPER(LEFT(FirstName, 2)) AS FirstName_Left2,
     LOWER(EmailAddress) AS EmailAddress_Lower,
-    UPPER(REPLACE(FirstName, 'Jon', 'Arsalan')) AS FirstName_Replaced
+    UPPER(REPLACE(FirstName, 'Jon', 'Arsalan')) AS FirstName_Replaced,
+    REPLACE (EmailAddress,'-','') AS EmailAddress_Replaced,
+    LEN(FirstName) AS FirstName_Length
     
-
 FROM DimCustomer;
 
--- Watched video until minute 30
+-- Watched video until minute 33
