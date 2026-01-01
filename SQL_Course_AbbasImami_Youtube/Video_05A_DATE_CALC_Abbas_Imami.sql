@@ -32,6 +32,34 @@ SELECT TOP(10)
     DATEDIFF(month, BirthDate, GETDATE()) AS AgeInMonths,
     DATEDIFF(day, BirthDate, GETDATE()) AS AgeInDays
 
-FROM DimCustomer
+FROM DimCustomer;
 
--- Video watched till 21 minutes.
+SELECT TOP (10)
+
+    DATEADD(day,29,'20201201') AS New_Date,  -- Adding 29 days to 1st Dec 2020
+    DATENAME(month,'20201101') AS Month_Name  -- Returns the name of the month
+
+FROM DimCustomer;
+
+-- Example: Find total quantity sold per month name
+
+SELECT
+    DATENAME(month, OrderDate) AS Order_Month_Name,
+    SUM(OrderQuantity) AS Quantity_Sold
+    
+
+FROM FactInternetSales
+
+GROUP BY DATENAME(month, OrderDate)
+
+ORDER BY Quantity_Sold DESC; -- Best month for selling products is December while worst month is February.
+
+-- Check date format
+
+SELECT
+    MONTH('02/12/2025') AS Month_Value,  -- Returns 2 for February not 12 for December as the format is MM/DD/YYYY by default in SQL Server (i.e. American way). 
+    -- if you want to use DD/MM/YYYY format then you need to change the language settings of your database server to British English.
+
+    DATENAME(month,'02/12/2025') AS Month_Name -- Returns February as the format is MM/DD/YYYY by default in SQL Server.
+    
+-- Video watched till 46 minutes.
