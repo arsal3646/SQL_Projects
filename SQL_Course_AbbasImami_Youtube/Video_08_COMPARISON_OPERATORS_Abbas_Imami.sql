@@ -12,15 +12,20 @@ FROM DimProduct
 
 -- WHERE Class IS NULL -- to select all rows where Class is NULL IS NOT "NULL" -- to select all rows where Class is NOT NULL
 
-WHERE Class <> 'H' AND Class IS NULL -- to select all rows where Class is NOT 'H' and Class is NULL. The result will be empty because Class cannot be both NOT 'H' and NULL at the same time.
+WHERE Class <> 'H' AND Class IS NULL; -- to select all rows where Class is NOT 'H' and Class is NULL. The result will be empty because Class cannot be both NOT 'H' and NULL at the same time.
 
 
 -- Let's do AND + OR operators below
 
-SELECT *
+SELECT 
+    EnglishProductName,
+    Class,
+    Size
 
 
-FROM DimProduct;
+
+FROM DimProduct
+WHERE SIZE = 'M' OR SIZE = 'L'; -- to select all rows where SIZE is either 'M' or 'L'
 
 
--- Watched video until minute 35
+-- Watched video until minute 48
