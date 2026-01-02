@@ -20,12 +20,12 @@ WHERE Class <> 'H' AND Class IS NULL; -- to select all rows where Class is NOT '
 SELECT 
     EnglishProductName,
     Class,
-    Size
-
+    [Size],
+    Color,
+    [Status]
 
 
 FROM DimProduct
-WHERE SIZE = 'M' OR SIZE = 'L'; -- to select all rows where SIZE is either 'M' or 'L'
+WHERE (Class <> 'H' OR Class IS NULL) AND [Status] = 'Current'; -- we want to find all products where Class is NOT 'H' OR Class is NULL, AND Status is 'Current'
 
-
--- Watched video until minute 48
+-- Watched video till the end.
