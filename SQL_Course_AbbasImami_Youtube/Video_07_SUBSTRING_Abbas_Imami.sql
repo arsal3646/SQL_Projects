@@ -1,8 +1,8 @@
 SELECT 
     LoginID,
     RIGHT(LoginID,(len(LoginID)-CHARINDEX('\',LoginID))) AS LoginID_Without_Domain_Name,
-    SUBSTRING(EmailAddress, 17, 5) AS Substring_EmailAddress
-    
+    SUBSTRING(EmailAddress, CHARINDEX('@', EmailAddress), 5) AS Company_Name
+  
 
 FROM DimEmployee;
 
