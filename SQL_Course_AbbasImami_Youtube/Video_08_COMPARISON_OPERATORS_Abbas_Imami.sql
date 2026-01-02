@@ -12,7 +12,7 @@ FROM DimProduct
 
 -- WHERE Class IS NULL -- to select all rows where Class is NULL IS NOT "NULL" -- to select all rows where Class is NOT NULL
 
-WHERE Class <> 'H' -- both conditions will give the same result;
+WHERE Class <> 'H' AND Class IS NULL -- to select all rows where Class is NOT 'H' and Class is NULL. The result will be empty because Class cannot be both NOT 'H' and NULL at the same time.
 
 
 -- Let's do AND + OR operators below
@@ -23,4 +23,4 @@ SELECT *
 FROM DimProduct;
 
 
--- Watched video until minute 25
+-- Watched video until minute 35
