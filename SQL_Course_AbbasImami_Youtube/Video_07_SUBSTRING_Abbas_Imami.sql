@@ -1,7 +1,9 @@
 SELECT 
     LoginID,
-    RIGHT(LoginID,(len(LoginID)-CHARINDEX('\',LoginID))) AS PositionOfBackslash
+    RIGHT(LoginID,(len(LoginID)-CHARINDEX('\',LoginID))) AS LoginID_Without_Domain_Name,
+    SUBSTRING(EmailAddress, 17, 5) AS Substring_EmailAddress
+    
 
 FROM DimEmployee;
 
--- Watched video minute 11
+-- Watched video minute 30
