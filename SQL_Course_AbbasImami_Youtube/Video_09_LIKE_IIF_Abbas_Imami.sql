@@ -26,7 +26,8 @@ WHERE SafetyStockLevel BETWEEN 500 AND 1000;
 
 SELECT 
     FirstName,
-    EmailAddress
+    EmailAddress,
+    Phone
     
 
 FROM DimCustomer
@@ -34,6 +35,24 @@ FROM DimCustomer
 -- WHERE FirstName LIKE '_r%'  -- Names with second letter 'r'
 -- WHERE FirstName LIKE 'A%'  -- Names starting with 'A'
 
-WHERE FirstName LIKE 'r__' -- Names with 3 letters starting with 'r'. These are two underscores after r.
+-- WHERE FirstName LIKE 'r__' -- Names with 3 letters starting with 'r'. These are two underscores after r.
+WHERE Phone LIKE '123%';  -- Phone numbers beginning with 123
 
--- Video watched until minute 23
+
+SELECT 
+    FirstName,
+    LastName,
+    EmailAddress,
+    FORMAT(YearlyIncome,'N2') AS YearlyIncome,
+    Phone,
+    IIF(YearlyIncome >70000, 'High Income', 'Low Income') AS IncomeBracket
+
+FROM DimCustomer
+
+-- WHERE YearlyIncome >70000 -- Income greater than 70000 
+-- We want to make buckets of income using IIF function
+
+WHERE IIF(YearlyIncome >70000, 'High Income', 'Low Income') = 'High Income'
+
+
+-- Video watched till the end.
