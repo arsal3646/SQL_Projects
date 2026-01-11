@@ -19,7 +19,7 @@ FROM DimCustomer
 -- 1. How to use CASE statement in SQL to create conditional logic.
 -- 2. How to categorize data based on specific criteria using CASE.
 
-Also, 
+-- Also, 
 -- I understood the difference between IIF and CASE statements.
 -- IIF is a shorthand for simple conditional checks, while CASE is more versatile and can handle multiple conditions.
 -- IIF is not supported in all SQL databases, whereas CASE is widely supported.
