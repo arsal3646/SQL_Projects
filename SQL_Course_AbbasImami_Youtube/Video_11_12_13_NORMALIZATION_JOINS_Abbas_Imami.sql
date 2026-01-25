@@ -32,12 +32,24 @@
 -- DIMENSION TABLES are used to store descriptive attributes related to the fact data, providing context for analysis. 
 -- There is no data in fact tables, only keys that reference dimension tables.
 
--- Watched Video 12 until minute 38
--- Watched 11 till the end
 
-SELECT TOP(10)*
 
-FROM FactInternetSales -- Fact Table (almost always FROM is from FACT TABLE)
+SELECT TOP(10)
+    f.SalesOrderNumber,
+    f.OrderQuantity,
+    f.SalesAmount,
+    f.TaxAmt,
+
+    dc.BirthDate,
+    dc.FirstName,
+    dc.LastName
+
+FROM FactInternetSales  AS f -- Fact Table (almost always FROM is from FACT TABLE)
     -- JOIN DimCustomer -- inner join by default
-   INNER JOIN DimCustomer
-   ON FactInternetSales.CustomerKey = DimCustomer.CustomerKey -- Joining Fact Table with Dimension Table using CustomerKey 
+   INNER JOIN DimCustomer AS dc
+   ON f.CustomerKey = dc.CustomerKey -- Joining Fact Table with Dimension Table using CustomerKey 
+
+
+
+-- Watched Video 12 until minute 38
+-- Watched 11 till the end b
