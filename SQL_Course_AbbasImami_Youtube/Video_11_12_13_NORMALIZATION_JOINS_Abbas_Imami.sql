@@ -39,17 +39,23 @@ SELECT TOP(10)
     f.OrderQuantity,
     f.SalesAmount,
     f.TaxAmt,
+    t.SalesTerritoryRegion,
 
-    dc.BirthDate,
+    DATEDIFF(YEAR, dc.BirthDate, GETDATE()) AS CustomerAge, -- Calculating Customer Age from BirthDate
     dc.FirstName,
-    dc.LastName
+    dc.LastName,
+    CONCAT(dc.FirstName, ' ', dc.LastName) AS FullName
 
 FROM FactInternetSales  AS f -- Fact Table (almost always FROM is from FACT TABLE)
     -- JOIN DimCustomer -- inner join by default
    INNER JOIN DimCustomer AS dc
    ON f.CustomerKey = dc.CustomerKey -- Joining Fact Table with Dimension Table using CustomerKey 
 
+   LEFT JOIN DimSalesTerritory AS t
+    ON f.SalesTerritoryKey = t.SalesTerritoryKey -- Left Join with DimSalesTerritory to get all sales even if territory is missing
 
 
--- Watched Video 12 until minute 38
--- Watched 11 till the end b
+
+-- Watched Video 13 until minute 23
+-- Watched Video 12 until the end
+-- Watched 11 till the end 
