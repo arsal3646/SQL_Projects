@@ -35,11 +35,11 @@
 
 
 SELECT TOP(10)
-    f.SalesOrderNumber,
-    f.OrderQuantity,
-    f.SalesAmount,
-    f.TaxAmt,
-    t.SalesTerritoryRegion,
+    -- f.SalesOrderNumber AS OrderNumber,
+    SUM(f.OrderQuantity) as TotalOrderQuantity,
+    SUM(f.SalesAmount) AS TotalSalesAmount,
+    SUM(f.TaxAmt) as TotalTaxAmount,
+    -- t.SalesTerritoryRegion AS SalesRegion,
 
     DATEDIFF(YEAR, dc.BirthDate, GETDATE()) AS CustomerAge, -- Calculating Customer Age from BirthDate
     dc.FirstName,
@@ -54,8 +54,10 @@ FROM FactInternetSales  AS f -- Fact Table (almost always FROM is from FACT TABL
    LEFT JOIN DimSalesTerritory AS t
     ON f.SalesTerritoryKey = t.SalesTerritoryKey -- Left Join with DimSalesTerritory to get all sales even if territory is missing
 
+where dc.TotalChildren > 2 -- Filtering customers with more than 2 children
 
+GROUP BY t.SalesTerritoryCountry
 
--- Watched Video 13 until minute 23
+-- Watched Video 13 until minute 33
 -- Watched Video 12 until the end
 -- Watched 11 till the end 
