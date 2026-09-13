@@ -42,3 +42,21 @@ For example:
 - as it is enabling efficient data management and supporting various data-driven decision-making processes.
 
 */
+
+/* Databases are used for:
+    -   storing data for various applications
+    -   data analysis
+    -   record keeping
+    -   web applications, mobile applications, enterprise applications
+*/
+
+/* CRUD Operations in Databases
+
+CRUD stands for Create, Read, Update, and Delete, which are the four basic operations for managing data in a database.
+
+    - Create: Adding new records to a database table.
+    - Read: Retrieving data from a database table.
+    - Update: Modifying existing records in a database table.
+    - Delete: Removing records from a database table.
+
+*/
