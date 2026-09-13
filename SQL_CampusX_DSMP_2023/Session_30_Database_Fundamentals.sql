@@ -94,21 +94,40 @@ Properties of an ideal database include:
     - NoSQL Databases: 
             - Store data in a more flexible format, such as key-value pairs, documents, or graphs. 
             - Examples include MongoDB, Cassandra, and Redis.
+            - Suitable for scenarios where the schema may evolve over time and flexibility is required.
+            - Commonly used in web and mobile applications where rapid development and scalability are important.
+            - Often used in scenarios where high availability and horizontal scalability are important.
     
     
     - Column Databases: 
-            - Store data in columns rather than rows, which can improve performance for certain types of queries. 
+            - Relational data is row-based database storage, where each row represents a record and each column represents a field.
+            - The problem with row-based storage is that 
+            - it can be inefficient for analytical queries that need to read only a few columns from a large number of rows.
+            - e.g. we want mean of cgpa of all students, we don't need to read all other columns like name, address, etc.
+            - this will waste too much I/O and memory resources.
+
+            - Column databases store data in columns rather than rows, which can improve performance for certain types of queries. 
             - Examples include Apache Cassandra and HBase.
+            - Amazon Redshift and Google BigQuery are popular column databases.
+            - Google BigQuery is available as a fully managed, serverless data warehouse solution.
+            - The most worldwide used column databases by market share are Amazon Redshift, Google BigQuery, and Snowflake.
+
+            - Suitable for analytical queries and scenarios where read performance is critical.
+            - Often used in data warehousing, analytical applications and business intelligence applications.
     
     
     - Graph Databases: 
             - Store data in graph structures with nodes, edges, and properties, which is useful for analyzing relationships. 
             - Examples include Neo4j and Amazon Neptune.
+            - Suitable for scenarios where relationships between data points are complex and need to be traversed efficiently.
+            - Often used in social networks, recommendation engines, and fraud detection applications.
    
    
     - Key-value Databases: 
             - Store data as key-value pairs, which allows for fast retrieval based on the key. 
             - Examples include Redis and Amazon DynamoDB.
+            - Suitable for scenarios where quick lookups based on a unique key are required.
+            - Often used in caching, session management, and real-time analytics applications.
 
 */
 
