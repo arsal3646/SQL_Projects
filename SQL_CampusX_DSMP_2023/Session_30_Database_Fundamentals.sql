@@ -121,6 +121,9 @@ Properties of an ideal database include:
             - Examples include Neo4j and Amazon Neptune.
             - Suitable for scenarios where relationships between data points are complex and need to be traversed efficiently.
             - Often used in social networks, recommendation engines, and fraud detection applications.
+
+            - Graph database is a niche technology, primarily used for specialized use cases involving complex relationships between data points.
+            - Facebook is a notable example of a company that uses graph databases to manage and analyze complex social network relationships.
    
    
     - Key-value Databases: 
@@ -129,6 +132,11 @@ Properties of an ideal database include:
             - Suitable for scenarios where quick lookups based on a unique key are required.
             - Often used in caching, session management, and real-time analytics applications.
 
+            - Redis very famous example of a key-value database.
+            - Redis is an in-memory key-value store, which makes it extremely fast for read and write operations.
+
+            - Amazon DynamoDB is another widely used key-value database, especially in cloud-based applications.
+
 */
 
--- Watched the video until min 29
+-- Watched the video until min 46
