@@ -137,6 +137,16 @@ Properties of an ideal database include:
 
             - Amazon DynamoDB is another widely used key-value database, especially in cloud-based applications.
 
+     - Functions of DBMS:
+             - Data management, i.e. store, retrieve and update data
+             - Data integrity, i.e. ensuring accuracy and consistency of data
+             - Data security, i.e. protecting data from unauthorized access
+             - Transaction management, i.e. ensuring that all database operations are completed successfully or none at all
+             - Concurrency control, i.e. managing simultaneous data access by multiple users
+             - Backup and recovery, i.e. creating data backups and restoring data in case of failure
+
+- 
+
 */
 
--- Watched the video until min 46
+-- Watched the video until 1 hr 5 min
