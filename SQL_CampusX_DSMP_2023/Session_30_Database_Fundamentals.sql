@@ -144,9 +144,52 @@ Properties of an ideal database include:
              - Transaction management, i.e. ensuring that all database operations are completed successfully or none at all
              - Concurrency control, i.e. managing simultaneous data access by multiple users
              - Backup and recovery, i.e. creating data backups and restoring data in case of failure
+     
+     
+     - Keys
 
-- 
+             - Super Key: A set of one or more attributes that can uniquely identify a tuple in a relation.
+                - Example: In a table of students, 
+                        a combination of student_id and email could be a super key if both together uniquely identify each student.
 
+             - Candidate Key: A minimal super key, i.e., a super key with no redundant attributes.
+                - Example: In the same table of students, 
+                        if student_id alone can uniquely identify each student, it is a candidate key.
+
+             - Primary Key: A candidate key chosen by the database designer to uniquely identify tuples in a relation.
+                - Example: In the same table of students, 
+                        student_id could be chosen as the primary key.
+
+             - Foreign Key: An attribute or set of attributes in one relation that refers to the primary key in another relation.
+                - Example: In a table of course enrollments, 
+                        student_id could be a foreign key referring to the primary key in the students table.
+
+             - Composite Key: A key that consists of two or more attributes that together uniquely identify a tuple in a relation.
+                - Example: In a table of course enrollments, 
+                        a combination of student_id and course_id could be a composite key.
+
+             - Alternate Key: A candidate key that is not chosen as the primary key.
+                - Example: In the students table, 
+                        if student_id is the primary key, email could be an alternate key.
+
+             - Surrogate Key: An artificially created key, often a sequential number, used to uniquely identify tuples 
+                        when no natural primary key exists.
+                - Example: In a table of employees, 
+                        an auto-incremented employee_id could serve as a surrogate key.
+
+
+        - Primary key can never be NULL.
+        - Foreign key can be NULL if the relationship is optional.
+
+        - Primary key uniquely identifies each record in a table.
+
+        - Primary key cannot have duplicate values. For example, no duplicate roll numbers of students
+
+        - Good to have criteria for primary keys include:
+            - Uniqueness: The key should uniquely identify each record.
+            - Minimality: The key should have no redundant attributes.
+            - Stability: The key should not change frequently.
+            - Simplicity: The key should be simple and easy to use.
 */
 
--- Watched the video until 1 hr 5 min
+-- Watched the video until 1 hr 37 min
