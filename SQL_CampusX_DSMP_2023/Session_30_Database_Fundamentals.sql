@@ -317,6 +317,24 @@ Drawbacks of Databases:
                         - Designing the schema with future changes in mind
                         - Using database abstraction layers (means to decouple the application logic from the database implementation)
                         - Implementing modular and decoupled architecture
+
+Summary: Despite so many challenges and complexities, companies have almost no other option but to have databases.
+        
+        That is why it is important for us (tech people) must know how to work with databases. 
+        
+        A general understanding is must and deeper understanding is highly beneficial as 
+        there are many jobs that require database knowledge such as  
+                - Database Administrators
+                - Data Analysts
+                - Data Engineers
+                - Software Developers
+
+Side notes:
+
+        - MySQL is a database management system (DBMS) that uses Structured Query Language (SQL) for managing and manipulating relational databases.
+        - PhpMyAdmin is a web-based interface for managing MySQL databases.
+        - SQL is the standard language for interacting with relational databases. SQL is super important to learn.
+        
 */
 
--- Watched video 30 until 2 hr 06 min (total video length is 2 hr 15 min)
+-- Watched video 30 until 2 hr 15 min (total video length is 2 hr 15 min)
