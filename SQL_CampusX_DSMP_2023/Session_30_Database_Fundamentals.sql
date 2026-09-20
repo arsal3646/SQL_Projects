@@ -177,6 +177,8 @@ Properties of an ideal database include:
                 - Example: In a table of employees, 
                         an auto-incremented employee_id could serve as a surrogate key.
 
+                        "surrogate key is a primary key in majbooori"
+
 
         - Primary key can never be NULL.
         - Foreign key can be NULL if the relationship is optional.
@@ -192,4 +194,129 @@ Properties of an ideal database include:
             - Simplicity: The key should be simple and easy to use.
 */
 
--- Watched the video until 1 hr 37 min
+/*
+
+What is entity:
+                - An entity is a real-world object or concept that can have data stored about it in a database.
+                - Example: A student, a course, or an employee can be considered entities.
+
+                - To make it simpler to understand, an entity is something for which you can make a table in a database.
+
+Cardinality of Relationships:
+
+        It refers to the number of instances of one entity that can or must be associated with each instance of another entity in a relationship.
+
+        - One-to-One (1:1): 
+                Each instance of entity A is associated with at most one instance of entity B, and vice versa.
+        
+        - One-to-Many (1:N): 
+                Each instance of entity A can be associated with multiple instances of entity B, 
+                but each instance of entity B is associated with at most one instance of entity A.
+        
+        - Many-to-Many (M:N): 
+                Each instance of entity A can be associated with multiple instances of entity B, 
+                and each instance of entity B can be associated with multiple instances of entity A.
+        
+        - Optional Relationships: 
+                Some relationships may be optional, meaning that an instance of one entity may not be associated 
+                with any instance of the related entity.
+        
+        - Mandatory Relationships: 
+                Some relationships may be mandatory, 
+                meaning that an instance of one entity must be associated with at least one instance of the related entity.
+
+        - Thumb Rule:
+                1. For 1:1 (one to one), you need ONE table.
+                2. For 1:N (one to many), you need TWO tables with a foreign key in the "many" side table.
+                3. For M:N (many to many), you need THREE tables: two for the entities and one junction table to handle the relationship.
+
+                4. Other than this, do not try any other complex relationship mapping without a good reason 
+                        otherwise the data integrity may be compromised, and database design is bound to fail (CampusX teacher).
+                
+        *** NORMALIZATION will be taught later in detail in a separate session.
+
+        *** Side Note:  there can be too many tables in a database, which may complicate queries and maintenance. 
+                        The teacher gave example that he saw 40 tables in a database.
+*/
+
+
+/*
+
+Drawbacks of Databases:
+
+        - Complexity: Databases can be complex to design, implement, and maintain.
+                      "Database" say log real life may bohat dartay hain, i.e. isko proper tareeqay say handle karna zaroori hai.
+                      warna yei phr big handle karna mushkil ho jata hai.
+
+        - Cost: Setting up and maintaining a database system can be expensive.
+                      - hardware
+                      - software
+                      - personnel/training
+                      - ongoing maintenance
+                      - unexpected issues or emergencies
+
+        - Scalability: Databases (esp. RDBMS in large-scale applications) need to be able to handle growth in data volume and user load.
+                       
+                       Some solutions include:
+                       
+                        - Vertical scaling (upgrading hardware such as CPU, RAM, or storage)
+                        
+                        - Horizontal scaling (adding more servers)
+                        
+                        - Database sharding (this means splitting the database into smaller, more manageable pieces called shards)
+                        
+                        - Load balancing
+                        
+                        - Caching mechanisms (storing frequently accessed data in memory to reduce database load)
+                        
+                        - Optimized indexing
+        
+        - Data Integrity: Ensuring the accuracy and consistency of data over its lifecycle can be challenging.
+                        
+                        Some solutions include:
+                        
+                        - Implementing constraints (e.g., primary keys, foreign keys, unique constraints)
+                        - Using transactions to ensure atomicity
+                        - Regular data validation and cleaning
+
+        - Performance: Poorly designed databases can lead to performance issues.
+
+
+        - Security: Databases require robust security measures to protect sensitive data.
+                        
+                        Some solutions include:
+                
+                        - Implementing access controls and authentication mechanisms
+                        - Encrypting sensitive data
+                        - Regular security audits and monitoring
+                        - Keeping software and patches up to date
+
+
+        - Backup and Recovery: Ensuring proper backup and recovery mechanisms can be challenging.
+                        
+                        Some solutions include:
+
+                        - Regularly scheduled backups
+                        - Storing backups in multiple locations (e.g., on-site and off-site)
+                        - Testing backup and recovery procedures periodically
+                        - Implementing disaster recovery plans
+        
+        - Data Migration: Moving data from one system to another can be complex and error-prone.
+
+                Some solutions include:
+
+                        - Planning and testing the migration process thoroughly
+                        - Using ETL (Extract, Transform, Load) tools
+                        - Ensuring data consistency and integrity during migration
+                        - Performing post-migration validation and cleanup
+
+        - Flexibility: Adapting the database to changing requirements can be challenging.
+
+                Some solutions include:
+
+                        - Designing the schema with future changes in mind
+                        - Using database abstraction layers (means to decouple the application logic from the database implementation)
+                        - Implementing modular and decoupled architecture
+*/
+
+-- Watched video 30 until 2 hr 06 min (total video length is 2 hr 15 min)
