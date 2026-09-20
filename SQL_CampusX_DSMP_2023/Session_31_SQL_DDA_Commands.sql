@@ -46,7 +46,52 @@
         3. SAVEPOINT - set a point within a transaction to which you can later roll back
         4. SET TRANSACTION - configure the properties of the current transaction
 
++++++ Practice now on XAMP and then come back here +++++
+        
+        ========================
+        DDL Commands for Databases:
+        
+        Practice CREATE and DROP
+
+        CREATE DATABASE campusx;   // this will create a new database named campusx if it doesn't already exist
+        DROP DATABASE campusx;   // this will delete the database named campusx if it exists
+
+        CREATE DATABASE IF NOT EXISTS campusx;   // this will create the database only if it doesn't already exist
+
+        DROP DATABASE IF EXISTS campusx;   // this will delete the database only if it exists
+
+        the difference between CREATE and CREATE IF NOT EXISTS is that 
+        the former will attempt to create the database regardless of whether it already exists, 
+        potentially causing an error if it does, while the latter will only create the database 
+        if it does not already exist, avoiding such an error.
+
+        ========================
+
+        DDL Commands for Tables:
+
+        Practice CREATE, ALTER, and DROP
+*/
+
+/*
+        CREATE DATABASE IF NOT EXISTS campusx
+
+            CREATE TABLE users(
+                user_id INTEGER,
+                name VARCHAR(255),
+                email VARCHAR(255),
+                password VARCHAR(255)
+            );
+
+        ==========================
+        TRUNCATE TABLE users;   // this will remove all data from the users table but keep the table structure intact 
+                                /* you have to be very careful when using TRUNCATE as it will remove all data from the table permanently
+                                */
+        
+        
+        ==========================
+
+
 */
 
 
--- Watched video 31 until 0 hr 2 min (total video length is 2 hr 04 min)
+-- Watched video 31 until 0 hr 25 min (total video length is 2 hr 04 min)
