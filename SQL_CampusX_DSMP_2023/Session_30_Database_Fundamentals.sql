@@ -291,6 +291,13 @@ Properties of an ideal database include:
 
                         "surrogate key is a primary key in majbooori"
 
+             - Self-referencing Key: A foreign key that refers to the primary key in the same table.
+                
+                - Example: In an employees table, a manager_id column could be a self-referencing key referring to the employee_id column.
+                - Note: Self-referencing keys are used to establish a relationship within the same table.
+                - Self-referencing keys are often used to represent hierarchical relationships within the same table, 
+                        such as an organizational chart.
+
 
         - Primary key can never be NULL.
         - Foreign key can be NULL if the relationship is optional.
