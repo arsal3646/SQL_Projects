@@ -89,9 +89,26 @@
         
         
         ==========================
+/*
+    CONSTRAINTS in MySQL:
+        
+        CONSTRAINTS are rules applied to columns in a table to enforce data integrity.
+
+        CONSTRAINTS include:
+        1. PRIMARY KEY - uniquely identifies each record in a table
+        2. FOREIGN KEY - ensures referential integrity between tables
+        3. UNIQUE - ensures all values in a column are unique
+        4. NOT NULL - ensures a column cannot have a NULL value
+        5. CHECK - ensures the values in a column meet a specific condition
+        6. DEFAULT - sets a default value for a column
+        7. AUTO_INCREMENT - automatically generates a unique value for the column, typically used for primary keys
+    
 
 
 */
 
 
--- Watched video 31 until 0 hr 25 min (total video length is 2 hr 04 min)
+*/
+
+
+-- Watched video 31 until 0 hr 50 min (total video length is 2 hr 04 min)
