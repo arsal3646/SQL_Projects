@@ -162,6 +162,11 @@
         CONSTRAINT users_pk PRIMARY KEY(user_id, email)
     
 )
+
+
+AUTO_INCREMENT contraint: 
+    
+
 */
 
 
