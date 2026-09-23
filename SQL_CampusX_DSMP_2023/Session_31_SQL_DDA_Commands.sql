@@ -82,7 +82,7 @@
                 password VARCHAR(255)
             );
 
-        ==========================
+        ======================        sudo /Applications/XAMPP/xamppfiles/xampp status====
         TRUNCATE TABLE users;   // this will remove all data from the users table but keep the table structure intact 
                                 /* you have to be very careful when using TRUNCATE as it will remove all data from the table permanently
                                 */
@@ -102,13 +102,70 @@
         5. CHECK - ensures the values in a column meet a specific condition
         6. DEFAULT - sets a default value for a column
         7. AUTO_INCREMENT - automatically generates a unique value for the column, typically used for primary keys
+
+    -- Example of creating a table with constraints
+
+        CREATE TABLE users(
+            user_id INTEGER NOT NULL,
+            name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL UNIQUE,
+            password VARCHAR(255) NOT NULL
+            
+               
+        )
+
+    -- Another way of creating a table with constraints
+
+        CREATE TABLE users(
+            user_id INTEGER NOT NULL,
+            name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+            password VARCHAR(255) NOT NULL
+            
+            CONSTRAINT users_email_unique UNIQUE(email)
     
+        )
+
+    -- The first method is useful for quickly adding constraints directly to the column definitions,
+    -- while the second method is useful when you want a COMBINATION of two or more columns to have a unique constraint, 
+        rather than just a single column.
 
 
+    CREATE TABLE users(
+            user_id INTEGER NOT NULL,
+            name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+            password VARCHAR(255) NOT NULL
+            
+            CONSTRAINT users_email_unique UNIQUE(name, email)   // this will ensure that the combination of name and email is unique, 
+                e.g. ('John Doe', 'john.doe@example.com') and ('John Doe', 'john.doe@example.com') will not be allowed 
+                because the combination of name and email must be unique.
+                This will be solved by making one of them different, e.g. john.doe1@example.com
+        )
+    
+    Primary Key can be added in two ways:
+        1. Directly in the column definition:
+            user_id INTEGER NOT NULL PRIMARY KEY
+        2. Using a table-level constraint:
+            CONSTRAINT users_pk PRIMARY KEY(user_id)
+
+    CREATE TABLE users(
+	user_id INTEGER NOT NULL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+    
+	CONSTRAINT users_email_unique UNIQUE(name,email,password),
+    CONSTRAINT users_pk PRIMARY KEY(user_id)
+
+    Composite primary key can be added using a table-level constraint:
+        CONSTRAINT users_pk PRIMARY KEY(user_id, email)
+    
+)
 */
 
 
 */
 
 
--- Watched video 31 until 0 hr 50 min (total video length is 2 hr 04 min)
+-- Watched video 31 until 0 hr 56 min (total video length is 2 hr 04 min)
