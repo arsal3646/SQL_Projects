@@ -208,6 +208,35 @@ DEFAULT constraint:
             
             CONSTRAINT users_pk PRIMARY KEY(user_id)
         );
+
+FOREIGN KEY constraint:
+
+    - This is the most important constraint for maintaining relationships between tables.
+    - this constraint is used to ensure that the values in a column (or a set of columns) match the values in a column of another table.
+    - typically used to enforce referential integrity between tables.
+    - in MySQL, the FOREIGN KEY keyword is used to define such a constraint.
+
+    - example:
+        CREATE TABLE orders(
+            order_id INTEGER NOT NULL AUTO_INCREMENT,
+            user_id INTEGER NOT NULL,
+            order_date DATE NOT NULL,
+            CONSTRAINT orders_pk PRIMARY KEY(order_id),
+            CONSTRAINT orders_user_fk FOREIGN KEY(user_id) REFERENCES users(user_id)
+        );
+
+    example:
+        CREATE TABLE order(
+        order_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+        cid INTEGER NOT NULL,
+        order_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        
+        CONSTRAINT orders_foreign_key FOREIGN KEY (cid) REFERENCES customers(cid)
+      
+        );
+    -- Very important: even if we try to delete the customers table, the deletion will not be allowed.
+    -- This ensures referential integrity between the orders and customers tables.
+
 */
 
 ß
@@ -218,4 +247,4 @@ DEFAULT constraint:
 -- verify using sudo /Applications/XAMPP/xamppfiles/xampp status
 -- http://localhost/phpmyadmin
 
--- Watched video 31 until 1 hr 14 min (total video length is 2 hr 04 min)
+-- Watched video 31 until 1 hr 22 min (total video length is 2 hr 04 min)
