@@ -165,12 +165,57 @@
 
 
 AUTO_INCREMENT contraint: 
-    
+    - this constraint automatically generates a unique value for the column whenever a new row is inserted.
+    - typically used for primary key columns to ensure each row has a unique identifier.
+    - in MySQL, the AUTO_INCREMENT keyword is used to define such a column.
+    - example:
+        CREATE TABLE users(
+            user_id INTEGER NOT NULL AUTO_INCREMENT,
+            name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+            password VARCHAR(255) NOT NULL,
+            CONSTRAINT users_pk PRIMARY KEY(user_id)
+        );
 
+CHECK contraint:
+
+    - this constraint is used to ensure that the values in a column meet a specific condition.
+    - typically used to enforce domain integrity by limiting the values that can be placed in a column.
+    - in MySQL, the CHECK keyword is used to define such a constraint.
+
+    - example:
+        CREATE TABLE users(
+            user_id INTEGER NOT NULL AUTO_INCREMENT,
+            name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+            password VARCHAR(255) NOT NULL,
+            CONSTRAINT users_pk PRIMARY KEY(user_id),
+            CONSTRAINT users_email_check CHECK(email LIKE '%@%.%')
+        );
+
+DEFAULT constraint:
+
+    - this constraint is used to provide a default value for a column when no value is specified during an insert operation.
+    - in MySQL, the DEFAULT keyword is used to define such a constraint.
+
+    - example:
+        CREATE TABLE users(
+            user_id INTEGER NOT NULL AUTO_INCREMENT,
+            name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+
+            password VARCHAR(255) NOT NULL DEFAULT 'password123',
+            
+            CONSTRAINT users_pk PRIMARY KEY(user_id)
+        );
 */
 
-
+ß
 */
 
+-- sudo /Applications/XAMPP/xamppfiles/xampp start
 
--- Watched video 31 until 0 hr 56 min (total video length is 2 hr 04 min)
+-- verify using sudo /Applications/XAMPP/xamppfiles/xampp status
+-- http://localhost/phpmyadmin
+
+-- Watched video 31 until 1 hr 14 min (total video length is 2 hr 04 min)
