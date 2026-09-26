@@ -237,9 +237,150 @@ FOREIGN KEY constraint:
     -- Very important: even if we try to delete the customers table, the deletion will not be allowed.
     -- This ensures referential integrity between the orders and customers tables.
 
+    -- REFERENTIAL ACTIONS mean the actions that are taken on the child table when a corresponding row in the parent table is updated or deleted.
+
+    Four Referencial Actions in SQL:
+   
+    - RESTRICT: This is default behavior. 
+                Prevents the deletion or update of a row in the parent table if there are related rows in the child table.
+                
+                Example: 
+                    CREATE TABLE orders(
+                        order_id INTEGER NOT NULL AUTO_INCREMENT,
+                        user_id INTEGER NOT NULL,
+                        order_date DATE NOT NULL,
+                        CONSTRAINT orders_pk PRIMARY KEY(order_id),
+                        CONSTRAINT orders_user_fk FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE RESTRICT
+
+                        -- this ensures that if there are related rows in the child table, 
+                        -- the deletion or update in the parent table will be restricted.
+                    );
+
+                
+
+    - CASCADE:  Automatically updates or deletes the related rows in the child table when the 
+                corresponding row in the parent table is updated or deleted.
+                
+                Example: 
+                    CREATE TABLE orders(
+                        order_id INTEGER NOT NULL AUTO_INCREMENT,
+                        user_id INTEGER NOT NULL,
+                        order_date DATE NOT NULL,
+                        CONSTRAINT orders_pk PRIMARY KEY(order_id),
+                        CONSTRAINT orders_user_fk FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE
+                    );
+
+                -- this ensures that if a row in the parent table is deleted, 
+                -- the related rows in the child table will also be automatically deleted.
+    
+    - SET NULL: Sets the foreign key column in the child table to NULL when the corresponding row in the parent table is deleted.
+                
+                Example: 
+                    CREATE TABLE orders(
+                        order_id INTEGER NOT NULL AUTO_INCREMENT,
+                        user_id INTEGER NOT NULL,
+                        order_date DATE NOT NULL,
+                        CONSTRAINT orders_pk PRIMARY KEY(order_id),
+                        CONSTRAINT orders_user_fk FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE SET NULL
+                    );
+
+                -- this ensures that if a row in the parent table is deleted, 
+                -- the foreign key column in the child table will be set to NULL.
+    
+    - NO ACTION: Similar to RESTRICT, 
+                 it prevents the deletion or update of a row in the parent table if there are related rows in the child table, 
+                 but the check is deferred until the end of the transaction.
+
 */
 
-ß
+    - ALTER TABLE comment:
+        Used to modify an existing table, such as adding, dropping, or modifying columns, 
+        as well as adding or dropping constraints.
+
+        Example:
+            ALTER TABLE orders
+            ADD COLUMN status VARCHAR(20) DEFAULT 'pending';
+
+        -- This adds a new column 'status' to the 'orders' table with a default value of 'pending'.
+
+        Example: in our customer table, we can add a new column 'email' to store customer email addresses.
+
+            ALTER TABLE customers
+            ADD COLUMN email VARCHAR(255);
+
+        -- This adds a new column 'email' to the 'customers' table to store customer email addresses.
+
+        Example: in our orders table, we can drop the 'status' column if it is no longer needed.
+
+            ALTER TABLE orders
+            DROP COLUMN status;
+
+        -- This removes the 'status' column from the 'orders' table.
+
+        Example: in our customers table, we can add a column by choosing LOCATION (i.e. between columns) of our own choice.
+            ALTER TABLE customers
+            ADD COLUMN phone_number VARCHAR(20) AFTER email;
+
+        -- This adds a new column 'phone_number' to the 'customers' table after the 'email' column.
+
+        -- We can use BEFORE also to specify that the new column should be added before an existing column.
+        -- Example: in our customers table, we can add a column 'middle_name' before the 'last_name' column.
+
+            ALTER TABLE customers
+            ADD COLUMN middle_name VARCHAR(255) BEFORE last_name;
+
+        -- This adds a new column 'middle_name' to the 'customers' table before the 'last_name' column.
+
+
+        -- More than one column can be added or deleted in a single ALTER TABLE statement.
+
+        Example: in our customers table, we can add both 'city' and 'state' columns at once.
+
+            ALTER TABLE customers
+
+            ADD COLUMN city VARCHAR(100) AFTER phone_number,
+            ADD COLUMN state VARCHAR(100) AFTER city;
+
+        -- This adds new columns 'city' and 'state' to the 'customers' table after the 'phone_number' column.
+
+        Similary, we can drop multiple columns in a single ALTER TABLE statement.
+
+        Example: in our customers table, we can drop both 'city' and 'state' columns at once.
+
+            ALTER TABLE customers
+            DROP COLUMN city,
+            DROP COLUMN state;
+
+        -- This removes the 'city' and 'state' columns from the 'customers' table.
+
+        MODIFY COLUMN can be used to change the data type or attributes of an existing column.
+
+        Example: in our customers table, we can modify the 'phone_number' column to have a larger length.
+
+            ALTER TABLE customers
+            MODIFY COLUMN phone_number VARCHAR(30);
+            MODIFY COLUMN email VARCHAR(255);
+            MODIFY COLUMN middle_name VARCHAR(255);
+
+        -- This changes the 'phone_number' column in the 'customers' table to have a length of 30 characters.
+        -- This changes the 'email' column in the 'customers' table to have a length of 255 characters.
+        -- This changes the 'middle_name' column in the 'customers' table to have a length of 255 characters.
+
+    -- MODIFY or DELETE constraints in existing tables can also be done using the ALTER TABLE statement.
+
+    Example: in our customers table, we can add a primary key constraint to the 'id' column.
+
+            ALTER TABLE customers
+            ADD CONSTRAINT pk_customers_id PRIMARY KEY (id);
+
+        -- This adds a primary key constraint to the 'id' column in the 'customers' table.
+
+    Example: in our customers table, we can drop the primary key constraint from the 'id' column.
+
+            ALTER TABLE customers
+            DROP CONSTRAINT pk_customers_id;
+
+        -- This removes the primary key constraint from the 'id' column in the 'customers' table.
 */
 
 -- sudo /Applications/XAMPP/xamppfiles/xampp start
@@ -247,4 +388,4 @@ FOREIGN KEY constraint:
 -- verify using sudo /Applications/XAMPP/xamppfiles/xampp status
 -- http://localhost/phpmyadmin
 
--- Watched video 31 until 1 hr 22 min (total video length is 2 hr 04 min)
+-- Watched video 31 until 1 hr 47 min (total video length is 2 hr 04 min)
