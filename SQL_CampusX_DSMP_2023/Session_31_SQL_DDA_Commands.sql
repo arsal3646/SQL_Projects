@@ -381,6 +381,17 @@ FOREIGN KEY constraint:
             DROP CONSTRAINT pk_customers_id;
 
         -- This removes the primary key constraint from the 'id' column in the 'customers' table.
+    
+    -- EDIT or MODIFY constraints in existing tables can also be done using the ALTER TABLE statement.
+            -- note: This can be done only by removing the existing constraint and then adding a new one.
+        
+        Example: in our customers table, we can modify the primary key constraint on the 'id' column.
+
+            ALTER TABLE customers
+            DROP CONSTRAINT pk_customers_id,
+            ADD CONSTRAINT pk_customers_id PRIMARY KEY (id);
+
+        -- This modifies the primary key constraint on the 'id' column in the 'customers' table.
 */
 
 -- sudo /Applications/XAMPP/xamppfiles/xampp start
@@ -388,4 +399,4 @@ FOREIGN KEY constraint:
 -- verify using sudo /Applications/XAMPP/xamppfiles/xampp status
 -- http://localhost/phpmyadmin
 
--- Watched video 31 until 1 hr 47 min (total video length is 2 hr 04 min)
+-- Watched video 31 until 2 hr 04 min (total video length is 2 hr 04 min)
