@@ -12,6 +12,8 @@ Note:   Database and Schema are essentially the same in MySQL.
 
 -- we will use "smartphone" dataset.
 
+-- Import Data
+        
 -- CRUD operations are:
 
         1. CREATE (INSERT)
@@ -70,6 +72,56 @@ Note:   Database and Schema are essentially the same in MySQL.
                ('Salman.khan@example.com', 'Salman Khan', 'Bajrangi2015', NULL),
                ('Aamir.khan@example.com', 'Aamir Khan', 'Dangal2016', NULL);
 
+-- SELECT
+        This is the most used operation in CRUD as it allows us to read and 'retrieve' data from the database.
+
+        -- we will use smartphones table for our SELECT queries
+
+        -- The below query selects all columns and all rows from the smartphones_cleaned_v6 table        
+        SELECT campusx.smartphones_cleaned_v6.*
+        FROM campusx.smartphones_cleaned_v6;
+
+        -- The below query selects all columns from the 'users' table (all columns and all rows)
+        SELECT * 
+        FROM campusx.users;
+
+        -- selects all columns from the 'users' table where the condition is always true (1)
+        -- the condition WHERE is optional
+        -- 'WHERE' means the condition that must be met for the rows to be selected
+        -- In this case, the condition is always true, so all rows will be selected.
+        -- When WHERE is omitted, it is equivalent to WHERE 1, meaning all rows will be selected.
+        -- The other option for WHERE is to specify a condition that filters the rows based on column values. For example:
+        -- WHERE user_id = 1
+
+        SELECT * 
+        FROM campusx.users WHERE 1;
+
+        -- Filter columns using SELECT
+
+        Example: Selecting specific columns from the 'users' table
+
+        SELECT name, email
+        FROM campusx.users;
+
+        Example: Selecting specific columns from the 'smartphones_cleaned_v6' table
+                 Order of columns can be of your choice, as needed, i.e. not necessary to follow the order in which they are defined in the table.
+
+        SELECT model, price, rating
+        FROM campusx.smartphones_cleaned_v6;
+
+        -- We can also rename the columns in the result set using the 'AS' keyword.
+           This will only be in result output and does not change the actual column names in the table.
+           The actual column names in the table remain unchanged.
+           
+        -- Example: Renaming columns in the result set using 'AS' keyword.
+        
+        SELECT model AS smartphone_model, price AS smartphone_price
+        FROM campusx.smartphones_cleaned_v6;
+
+        SELECT model AS sirf_model, price AS sirf_price
+        FROM campusx.smartphones_cleaned_v6;
+
+
 */
 
 -- sudo /Applications/XAMPP/xamppfiles/xampp start
@@ -77,4 +129,4 @@ Note:   Database and Schema are essentially the same in MySQL.
 -- verify using sudo /Applications/XAMPP/xamppfiles/xampp status
 -- http://localhost/phpmyadmin
 
--- Watched video 32 until 0 hr 15 min (total video length is  2 hr 04 min)
+-- Watched video 32 until 0 hr 36 min (total video length is  2 hr 04 min)
