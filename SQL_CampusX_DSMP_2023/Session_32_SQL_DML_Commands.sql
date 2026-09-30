@@ -117,9 +117,98 @@ Note:   Database and Schema are essentially the same in MySQL.
         
         SELECT model AS smartphone_model, price AS smartphone_price
         FROM campusx.smartphones_cleaned_v6;
-
+      
         SELECT model AS sirf_model, price AS sirf_price
         FROM campusx.smartphones_cleaned_v6;
+
+Creating constants:
+        -- Creating a constant for the type of the product
+        -- this is useful when you want to assign a fixed value to a column in the result set.
+
+        SELECT model, 'smartphone' AS 'type'
+        FROM campusx.smartphones_cleaned_v6;
+
+DISTINCT:
+        -- The DISTINCT keyword is used to return only unique (different) values.
+        -- It filters out duplicate values in the result set.
+        
+        -- Example: Selecting distinct values for the 'os' column from the 'smartphones_cleaned_v6' table
+        
+        SELECT DISTINCT (brand_name) AS 'All brands'
+        FROM campusx.smartphones_cleaned_v6;
+
+        SELECT DISTINCT (processor_brand) AS 'All processor brands'
+        FROM campusx.smartphones_cleaned_v6;
+
+        SELECT DISTINCT (os) AS 'All operating systems'
+        FROM campusx.smartphones_cleaned_v6;
+
+        SELECT DISTINCT (battery_capacity) AS 'All battery capacities'
+        FROM campusx.smartphones_cleaned_v6;
+
+DISTINCT COMBINATIONS:
+        -- The DISTINCT keyword can also be used to return unique combinations of multiple columns.
+        -- Example: Selecting distinct combinations of 'brand_name' and 'os' from the 'smartphones_cleaned_v6' table
+
+        SELECT DISTINCT brand_name, os
+        FROM campusx.smartphones_cleaned_v6;
+
+        SELECT DISTINCT brand_name, battery_capacity
+        FROM campusx.smartphones_cleaned_v6;
+
+WHERE:
+        -- The WHERE clause is used to filter records based on a specified condition.
+        -- WHERE is used for filtering rows based on a specified condition.
+        -- Example: Selecting all smartphones with a battery capacity greater than 4000 mAh
+
+        SELECT *
+        FROM campusx.smartphones_cleaned_v6
+        WHERE battery_capacity > 4000;
+
+        SELECT *
+        FROM campusx.smartphones_cleaned_v6
+        WHERE brand_name = 'apple';
+
+        SELECT *
+        FROM campusx.smartphones_cleaned_v6
+        WHERE price > 5000;
+
+BETWEEN:
+        -- The BETWEEN operator is used to filter the result set within a certain range.
+        -- Example: Selecting all smartphones with a price between 20000 and 50000
+
+        SELECT *
+        FROM campusx.smartphones_cleaned_v6
+        WHERE price > 50000 AND price < 75000;
+
+        -- In Python, lowercase and is the logical operator, and AND isn't valid Python at all. 
+        -- In pandas, you combine conditions with & (element-wise), not and. 
+        -- Suggested line: "SQL: AND = and (case-insensitive). 
+        --Python: only and exists. 
+        -- pandas: use & for combining column conditions."
+
+        SELECT *
+        FROM campusx.smartphones_cleaned_v6
+        WHERE price BETWEEN 5000 AND 7500;
+
+        -- Note: The BETWEEN operator is inclusive, meaning it includes the boundary values specified.
+
+QUERY EXECUTION  ORDER (just for seeing how the queries work)
+
+        - Visual representation of the query execution order using website infytq.onwingspan.com
+        - Search topic "Order of query execution"
+
+        -- FJWGHSDO  (Frank Just Wants Good SQL Done Orderly)
+
+        -- F (FROM)
+        -- J (JOIN)
+        -- W (WHERE)
+        -- G (GROUP BY)
+        -- H (HAVING)
+        -- S (SELECT)
+        -- D (DISTINCT)
+        -- O (ORDER BY)
+        
 
 
 */
@@ -129,4 +218,4 @@ Note:   Database and Schema are essentially the same in MySQL.
 -- verify using sudo /Applications/XAMPP/xamppfiles/xampp status
 -- http://localhost/phpmyadmin
 
--- Watched video 32 until 0 hr 36 min (total video length is  2 hr 04 min)
+-- Watched video 32 until 1 hr 08 min (total video length is  2 hr 04 min)
