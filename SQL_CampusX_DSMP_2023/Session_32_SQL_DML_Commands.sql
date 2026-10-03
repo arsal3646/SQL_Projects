@@ -210,6 +210,88 @@ QUERY EXECUTION  ORDER (just for seeing how the queries work)
         -- O (ORDER BY)
         
 
+        SELECT DISTINCT brand_name
+        FROM campusx.smartphones_cleaned_v6
+        WHERE price > 100000;
+
+        SELECT DISTINCT * 
+        FROM campusx.smartphones_cleaned_v6
+        WHERE processor_brand = 'exynos' OR processor_brand = 'bionic';
+
+-- IN operator:
+        -- The IN operator is used to filter the result set based on a list of specified values.
+        -- Example: Selecting all smartphones with processor brand either 'exynos' or 'bionic'
+
+        SELECT *
+        FROM campusx.smartphones_cleaned_v6
+        WHERE processor_brand IN ('exynos', 'bionic');
+
+        SELECT *
+        FROM campusx.smartphones_cleaned_v6
+        WHERE processor_brand IN ('exynos', 'bionic');
+
+        SELECT *
+        FROM campusx.smartphones_cleaned_v6
+        WHERE processor_brand IN ('exynos', 'bionic', 'snapdragon');
+
+-- NOT IN operator:
+        -- The NOT IN operator is used to filter the result set based on a list of specified values, excluding those values.
+        -- Example: Selecting all smartphones with processor brand not 'exynos' or 'bionic'
+
+        SELECT *
+        FROM campusx.smartphones_cleaned_v6
+        WHERE processor_brand NOT IN ('exynos', 'bionic');
+
+-- UPDATE statement is used to modify existing records in a table.
+        Syntax:
+        UPDATE table_name
+        SET column1 = value1, column2 = value2, ...
+        WHERE condition;
+
+        -- in the below example, we are updating the processor brand from 'mediatek' to 'dimensity' for all matching records.
+        UPDATE campusx.smartphones_cleaned_v6
+        SET processor_brand = 'dimensity'
+        WHERE processor_brand = 'mediatek';
+
+-- We can update multiple columns in a single UPDATE statement as well.
+        -- Example: Updating both the processor brand and the price for all matching records.
+        UPDATE campusx.smartphones_cleaned_v6
+        SET processor_brand = 'dimensity', price = price * 1.1
+        WHERE processor_brand = 'mediatek';
+
+        SELECT*
+        FROM campusx.users;
+
+        UPDATE campusx.users
+        SET email = 'nithish@yahoo.com', password = '@pass1234'
+        WHERE name = 'nithish';
+
+        SELECT*
+        FROM campusx.users;
+
+-- DELETE
+        -- The DELETE statement is used to remove existing records from a table.
+        Syntax:
+        DELETE FROM table_name
+        WHERE condition;
+
+        -- Example: Deleting a user with the name 'nithish'
+        DELETE FROM campusx.users
+        WHERE name = 'nithish';
+
+        SELECT*
+        FROM campusx.users;
+
+        -- An example of deleting a user with the name 'nithish' is shown below.
+
+        SELECT*
+        FROM campusx.users;
+
+        DELETE FROM campusx.users
+        WHERE name = 'nithish';
+
+        SELECT*
+        FROM campusx.users;
 
 */
 
@@ -218,4 +300,4 @@ QUERY EXECUTION  ORDER (just for seeing how the queries work)
 -- verify using sudo /Applications/XAMPP/xamppfiles/xampp status
 -- http://localhost/phpmyadmin
 
--- Watched video 32 until 1 hr 08 min (total video length is  2 hr 04 min)
+-- Watched video 32 until 1 hr 28 min (total video length is  2 hr 04 min)
