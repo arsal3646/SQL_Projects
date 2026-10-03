@@ -351,6 +351,21 @@ QUERY EXECUTION  ORDER (just for seeing how the queries work)
         WHERE brand_name = 'samsung' AND price = 163980;
         ;
 
+CEIL - Returns the smallest integer greater than or equal to a given number.
+        Example: CEIL(4.2) returns 5.
+
+FLOOR - Returns the largest integer less than or equal to a given number.
+        Example: FLOOR(4.8) returns 4.
+ABS - Returns the absolute value of a number.
+        Example: ABS(-5) returns 5.
+ROUND - Rounds a number to the nearest integer or to a specified number of decimal places.
+        Example: ROUND(4.6) returns 5.
+        -- Example usage in SQL queries:
+        SELECT CEIL(4.2);
+        SELECT FLOOR(4.8);
+        SELECT ABS(-5);
+        SELECT ROUND(4.6);
+
 */
 
 -- sudo /Applications/XAMPP/xamppfiles/xampp start
@@ -358,4 +373,4 @@ QUERY EXECUTION  ORDER (just for seeing how the queries work)
 -- verify using sudo /Applications/XAMPP/xamppfiles/xampp status
 -- http://localhost/phpmyadmin
 
--- Watched video 32 until 1 hr 32 min (total video length is  2 hr 04 min)
+-- Watched video 32 until 2 hr 04 min (total video length is  2 hr 04 min)
