@@ -293,6 +293,64 @@ QUERY EXECUTION  ORDER (just for seeing how the queries work)
         SELECT*
         FROM campusx.users;
 
+        -- Another example of deleting records based on a condition is shown below.
+        SELECT *
+        FROM campusx.smartphones_cleaned_v6
+        WHERE price > 200000;
+
+        DELETE FROM campusx.smartphones_cleaned_v6
+        WHERE price > 200000;
+
+        SELECT *
+        FROM campusx.smartphones_cleaned_v6;
+
+
+        -- DELETE with multiple conditions
+
+        -- in the below example we are deleting all smartphones that have a primary rear camera greater than 50 and belong to the brand 'samsung'.
+
+        SELECT * 
+        FROM campusx.smartphones_cleaned_v6
+        WHERE primary_camera_rear > 50 AND brand_name = 'samsung'
+        ;
+
+        DELETE FROM campusx.smartphones_cleaned_v6
+        WHERE primary_camera_rear > 50 AND brand_name = 'samsung'
+        ;
+
+-- SQL Functions
+        There are two types of SQL functions, i.e. built-in functions and user-defined functions.
+        -- Built-in functions are provided by the SQL database system and can be used directly in queries.
+        -- User-defined functions are created by the user to perform specific tasks and can be reused in queries.       
+
+        -- built-in functions are then of two types: aggregate functions and scalar functions.
+        -- Aggregate functions perform a calculation on a set of values and return a single value.
+        -- Examples include SUM(), AVG(), COUNT(), MAX(), MIN().
+        
+        -- Scalar functions operate on a single value and return a single value.
+        -- Examples include UPPER(), LOWER(), LENGTH(), NOW().
+        -- You can use these functions in your SQL queries to manipulate and analyze data effectively.
+
+
+        SELECT MIN(ram_capacity)
+        FROM campusx.smartphones_cleaned_v6;
+
+        SELECT MAX(ram_capacity)
+        FROM campusx.smartphones_cleaned_v6;
+
+        SELECT AVG(price)
+        FROM campusx.smartphones_cleaned_v6;
+
+        SELECT COUNT(brand_name)
+        FROM campusx.smartphones_cleaned_v6;
+
+        -- we can use multiple conditions also for min max etc.
+
+        SELECT *
+        FROM campusx.smartphones_cleaned_v6
+        WHERE brand_name = 'samsung' AND price = 163980;
+        ;
+
 */
 
 -- sudo /Applications/XAMPP/xamppfiles/xampp start
@@ -300,4 +358,4 @@ QUERY EXECUTION  ORDER (just for seeing how the queries work)
 -- verify using sudo /Applications/XAMPP/xamppfiles/xampp status
 -- http://localhost/phpmyadmin
 
--- Watched video 32 until 1 hr 28 min (total video length is  2 hr 04 min)
+-- Watched video 32 until 1 hr 32 min (total video length is  2 hr 04 min)
