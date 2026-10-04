@@ -68,10 +68,40 @@
             FROM campusx.smartphones_cleaned_v6
             GROUP BY brand_name ORDER BY total_phones DESC LIMIT 5;
 
+        Example: count the number of phones that have NFC
+            SELECT has_nfc, 
+            COUNT(*) AS 'total_phones', 
+            FORMAT(AVG(price), 2) AS 'average_price', 
+            FORMAT(AVG(rating), 2) AS 'average_rating'
+            FROM campusx.smartphones_cleaned_v6
+            GROUP BY has_nfc;
+
+        Example: count the number of phones that have 5G
+
+            SELECT has_5g, 
+            COUNT(*) AS 'total_phones', 
+            FORMAT(AVG(price), 2) AS 'average_price', 
+            FORMAT(AVG(rating), 2) AS 'average_rating'
+            FROM campusx.smartphones_cleaned_v6
+            GROUP BY has_5g;
+    
+    -- GROUPBY using multiple columns
 
 
+-- Side Important Note:
+        -- Use FORMAT() for display. 
+        -- Use the underlying numeric value for calculations, numeric comparisons, and sorting.
+        -- This is because the formatted value is a string, not a numeric value.
+        -- This means that if you do sorting on the formatted value, it may not behave as expected numerically.
+        -- Always keep this in mind when working with formatted numeric values in SQL.
+        
+        -- Example: 900, 250, 12000 (if you format this, it will become '900', '250', '12000' as strings)
+        -- and then if you sort descending, the output will be:
+                -- '900', '250', '12000' (this is definitely wrong)
 
-
+                -- Correct way is to sort using the underlying numeric values, not the formatted strings.
+                -- i.e. use the actual numeric values for sorting, not the formatted strings.
+   
 */
 
 
@@ -83,4 +113,4 @@
 
 -- FJWGHSDO  (Frank Just Wants Good SQL Done Orderly)
 
--- Watched video 33 until 0 hr 42 min (total video length is  hr  min)
+-- Watched video 33 until 1 hr 06 min (total video length is  2 hr  05 min)
