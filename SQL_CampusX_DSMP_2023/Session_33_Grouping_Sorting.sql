@@ -101,7 +101,14 @@
 
                 -- Correct way is to sort using the underlying numeric values, not the formatted strings.
                 -- i.e. use the actual numeric values for sorting, not the formatted strings.
-   
+
+        -- Example: find the brand with the highest number of phones that have both NFC and IR blaster
+                SELECT brand_name, COUNT(*) AS 'count'
+                FROM campusx.smartphones_cleaned_v6
+                WHERE has_nfc = 'True' AND has_ir_blaster = 'TRUE'
+                GROUP BY brand_name
+                ORDER BY 'count' DESC LIMIT 1;
+
 */
 
 
@@ -113,4 +120,4 @@
 
 -- FJWGHSDO  (Frank Just Wants Good SQL Done Orderly)
 
--- Watched video 33 until 1 hr 06 min (total video length is  2 hr  05 min)
+-- Watched video 33 until 1 hr 26 min (total video length is  2 hr  05 min)
