@@ -9,8 +9,20 @@
             FROM table_name
             ORDER BY column1 ASC, column2 DESC;
 
+    Example: find top 5 Samsung phone in the smartphones table
 
+            SELECT model, screen_size
+            FROM campusx.smartphones_cleaned_v6
+            WHERE brand_name = 'samsung'
+            ORDER BY screen_size DESC LIMIT 5;
+    
+    Example: find top 5 phones by TOTAL MAX CAMERA, i.e. add primary_camera_rear and secondary_camera_front and then select the top 5
 
+            SELECT model, num_front_cameras + num_rear_cameras AS total_cameras
+            FROM campusx.smartphones_cleaned_v6
+            ORDER BY total_cameras DESC LIMIT 15;
+
+    Example: sort data on the basis of PPI (some measure of pixel density) in decreasing order
 
 
 -- GROUPING data:
