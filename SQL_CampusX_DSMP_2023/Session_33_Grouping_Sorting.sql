@@ -109,6 +109,54 @@
                 GROUP BY brand_name
                 ORDER BY 'count' DESC LIMIT 1;
 
+HAVING:
+        -- easy to remember 
+                1. WHERE is for SELECT
+                2. HAVING is for GROUP BY
+        
+        WHERE filters ROWS before grouping.
+        HAVING filters GROUPS after grouping.
+
+        Example: find average price of those brands which have at least 20 phones
+
+                SELECT brand_name, 
+                COUNT(*) AS 'count',
+                AVG(price) AS 'average_price'
+                FROM campusx.smartphones_cleaned_v6
+                GROUP BY brand_name
+                HAVING COUNT(*) >= 20
+                ORDER BY average_price DESC;
+
+        Example: Find the top 3 brands with 
+                        1. the highest average RAM that have refresh rate of at least 90Hz and 
+                        2. fast charging available, and 
+                        3. don't consider brands which have less than 10 phones.
+
+
+                SELECT brand_name, 
+                FORMAT(AVG(ram_capacity), 2) AS avg_ram_capacity
+                FROM campusx.smartphones_cleaned_v6
+                WHERE refresh_rate >= 90 AND fast_charging_available = 1
+                GROUP BY brand_name
+                HAVING COUNT(*) > 10
+                ORDER BY avg_ram_capacity DESC LIMIT 3;
+        
+        Example: Find the top 10 batters with the most runs in IPL
+
+                SELECT batter, SUM(batsman_run) AS total_runs
+                FROM campusx.ipl
+                GROUP BY batter
+                ORDER BY total_runs DESC LIMIT 10;
+
+        Example: Find batsman who hit second highest number of sixes in IPL
+
+                SELECT batter, COUNT(*) AS total_sixes
+                FROM campusx.ipl
+                WHERE batsman_run = 6
+                GROUP BY batter
+                ORDER BY total_sixes DESC LIMIT 1 OFFSET 1;
+
+
 */
 
 
@@ -120,4 +168,4 @@
 
 -- FJWGHSDO  (Frank Just Wants Good SQL Done Orderly)
 
--- Watched video 33 until 1 hr 26 min (total video length is  2 hr  05 min)
+-- Watched video 33 until 2 hr 05 min (total video length is  2 hr  05 min)
