@@ -128,6 +128,20 @@ SQL Joins:
             RIGHT JOIN joins_practice.users1 u1
             ON u.user_id = u1.user_id;
 
+-- FULL OUTER JOIN (or FULL JOIN)
+        -- Returns all records when there is a match in either left (first) or right (second) table.
+        -- If no match, NULL values are returned for columns from the table without a match.
+
+        -- Example:
+            SELECT *
+            FROM joins_practice.users u
+            FULL OUTER JOIN joins_practice.users1 u1
+            ON u.user_id = u1.user_id;
+
+        -- This like UNION of LEFT JOIN and RIGHT JOIN, combining all records from both tables.
+        -- Note: Some SQL databases may not support FULL OUTER JOIN directly. 
+        -- In such cases, you can achieve the same result using a combination of LEFT JOIN, RIGHT JOIN, and UNION.
+
 
 */
 
@@ -141,4 +155,4 @@ SQL Joins:
 -- FJWGHSDO  (Frank Just Wants Good SQL Done Orderly)
 
 
--- Watched video 34 until 0 hr 33 min (total video length is  2 hr  10 min)
+-- Watched video 34 until 1 hr 01 min (total video length is  2 hr  10 min)
