@@ -66,6 +66,13 @@ SQL Joins:
         
             -- A regular join but the table is joined with itself.
 
+-- You can use a Venn diagram to illustrate the different types of joins:
+        -- INNER JOIN: Intersection of both tables.
+        -- LEFT JOIN: All records from the left table and the intersection.
+        -- RIGHT JOIN: All records from the right table and the intersection.
+        -- CROSS JOIN: Cartesian product of both tables.
+        -- SELF JOIN: A table joined with itself.
+
 -- CROSS JOIN
         -- This is also known as a Cartesian join.
         -- This gives you all possible combinations of rows from the two tables.
@@ -101,6 +108,26 @@ SQL Joins:
             INNER JOIN joins_practice.users1
             ON joins_practice.users.name = joins_practice.users1.name;
 
+-- LEFT JOIN (or LEFT OUTER JOIN)
+        -- Returns all records from the left table (aka first table), and the matched records from the right table (aka second table). 
+        -- If no match, NULL values are returned for columns from the right table.
+
+        -- Example:
+            SELECT *
+            FROM joins_practice.users u
+            LEFT JOIN joins_practice.users1 u1
+            ON u.user_id = u1.user_id;
+
+-- RIGHT JOIN (or RIGHT OUTER JOIN)
+        -- Returns all records from the right table (aka second table), and the matched records from the left table (aka first table). 
+        -- If no match, NULL values are returned for columns from the left table.
+
+        -- Example:
+            SELECT *
+            FROM joins_practice.users u
+            RIGHT JOIN joins_practice.users1 u1
+            ON u.user_id = u1.user_id;
+
 
 */
 
@@ -114,4 +141,4 @@ SQL Joins:
 -- FJWGHSDO  (Frank Just Wants Good SQL Done Orderly)
 
 
--- Watched video 34 until 0 hr 26 min (total video length is  2 hr  10 min)
+-- Watched video 34 until 0 hr 33 min (total video length is  2 hr  10 min)
