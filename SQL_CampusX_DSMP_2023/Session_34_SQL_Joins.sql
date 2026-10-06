@@ -3,6 +3,41 @@
 SQL Joins:
     SQL Joins are used to combine rows from two or more tables, based on a related column between them.
 
+    Main criteria for SQL JOIN is the presence of a common column between the tables.
+    Without a common column, a JOIN operation cannot be performed.
+
+    Why do we need SQL Joins:
+        -- To combine data from multiple tables based on a related column.
+        -- To retrieve comprehensive information that is spread across different tables.
+        -- To avoid data redundancy and maintain database normalization. 
+            e.g. in Amazon, imagine if we have to repeat user information in every order record instead of 
+            linking orders to a separate user table using user_id. 
+            This will reduce data redundancy and make the database more efficient.
+    
+    NAIVE QUESTION: Why can't we just store all data in a single table instead of using joins?
+        -- Storing all data in a single table can lead to data redundancy, update anomalies, and inefficient storage.
+        -- It also makes it harder to maintain and query the database effectively.
+    
+    What is UPDATE ANOMALY:
+        -- An update anomaly occurs when changes to data in one table require multiple updates in other tables due to data redundancy.
+        -- This can lead to inconsistencies if not all related records are updated correctly.
+        -- Using proper normalization and SQL joins helps to avoid update anomalies.
+
+            Example:
+                -- John was living in Dubai and he moved to Abu Dhabi.
+                -- If we had stored his address in multiple tables, we would need to update all of them.
+                -- This can lead to inconsistencies if we miss any table.
+                -- Using a separate address table and linking it with user_id helps to avoid this update anomaly.
+    
+    -- Normalization (we will cover this in detail later)
+        -- The process of organizing data in a database to reduce redundancy and improve data integrity.
+        
+        -- It involves dividing large tables into smaller, related tables and defining relationships between them.
+
+        -- Proper normalization ensures that:
+                1. Update anomalies are minimized.
+                2. Joins can be effectively used to retrieve comprehensive data.
+
     Types of SQL Joins:
 
         1. INNER JOIN: 
@@ -31,6 +66,41 @@ SQL Joins:
         
             -- A regular join but the table is joined with itself.
 
+-- CROSS JOIN
+        -- This is also known as a Cartesian join.
+        -- This gives you all possible combinations of rows from the two tables.
+
+        -- CROSS JOIN is not normally used because it can produce a very large number of rows, especially with large tables.
+        -- However, it can be useful in certain scenarios where you need all possible combinations of rows from two tables.
+
+        -- Keep in mind that CROSS JOIN can quickly lead to performance issues if the tables involved are large.
+
+        -- Example:
+            SELECT * FROM table1 CROSS JOIN table2;
+
+        -- Example of CROSS JOIN in practice:
+            SELECT *
+            FROM joins_practice.users
+            CROSS JOIN joins_practice.users1;
+
+-- INNER JOIN:
+        -- This is the MOST important and commonly used type of join.
+        -- Returns records that have matching values in both tables. 
+        -- Kind of intersection between the two tables.
+           
+        -- Example:
+                SELECT *
+                FROM joins_practice.users u
+                INNER JOIN joins_practice.users1 u1
+                ON u.user_id = u1.user_id;
+
+        -- Example of INNER JOIN in practice:
+            
+            SELECT *
+            FROM joins_practice.users
+            INNER JOIN joins_practice.users1
+            ON joins_practice.users.name = joins_practice.users1.name;
+
 
 */
 
@@ -44,4 +114,4 @@ SQL Joins:
 -- FJWGHSDO  (Frank Just Wants Good SQL Done Orderly)
 
 
--- Watched video 34 until 0 hr 6 min (total video length is  2 hr  10 min)
+-- Watched video 34 until 0 hr 26 min (total video length is  2 hr  10 min)
